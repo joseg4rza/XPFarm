@@ -1,7 +1,8 @@
 
 //   Test.assertSimilar(berlinClock("12:56:01"), 
 //   "O\nRROO\nRROO\nYYRYYRYYRYY\nYOOO")
-function berlinClock(time) {
+exports.berlinClock = (time) => {
+  return false;  
     //good Luck!
 var display='';
 
@@ -23,42 +24,42 @@ var oneHourBulb='';
 var fiveMinBulb='';
 var oneMinBulb=''; 
 
-    display=secBulbPanel+\n+fiveHourBulbPanel+\n+oneHourBulbPanel+\n+fiveMinBulbPanel+\n+oneMinBulbPanel;
+    display=secBulbPanel+'\n'+fiveHourBulbPanel+'\n'+oneHourBulbPanel+'\n'+fiveMinBulbPanel+'\n'+oneMinBulbPanel;
     return display;
   }
 
-function towerBuilder(nFloors) {//3
-  var tower= [];
-  var currentFloor=0
-  var spacesPerSide=0
-  var bricks=0
-  var side=''
-  var center=''
-  var completeFloor=''
-  var width=(nFloors*2)-1
-  for (var vf = 0; vf < nFloors; vf++) { //Ciclo de astericos previos
-    currentFloor=nFloors-vf
-    spacesPerSide=currentFloor-1
-    bricks=width-(spacesPerSide*2)
+// function towerBuilder(nFloors) {//3
+//   var tower= [];
+//   var currentFloor=0
+//   var spacesPerSide=0
+//   var bricks=0
+//   var side=''
+//   var center=''
+//   var completeFloor=''
+//   var width=(nFloors*2)-1
+//   for (var vf = 0; vf < nFloors; vf++) { //Ciclo de astericos previos
+//     currentFloor=nFloors-vf
+//     spacesPerSide=currentFloor-1
+//     bricks=width-(spacesPerSide*2)
   
-    //first steps, create side string and center string
-    for(var ls=0; ls<spacesPerSide; ls++){ //CREATE SIDE --ls means lateral spaces
-      side=side+' ';
-    }//side created
-     for(var cb=0; cb<bricks; cb++){ //CREATE SIDE  --cb means center bricks
-      center=center+'*';
-    }//center created
+//     //first steps, create side string and center string
+//     for(var ls=0; ls<spacesPerSide; ls++){ //CREATE SIDE --ls means lateral spaces
+//       side=side+' ';
+//     }//side created
+//      for(var cb=0; cb<bricks; cb++){ //CREATE SIDE  --cb means center bricks
+//       center=center+'*';
+//     }//center created
     
-    //Second step, complet the floor: concatenate side + center + side again
-    completeFloor=side+center+side
+//     //Second step, complet the floor: concatenate side + center + side again
+//     completeFloor=side+center+side
     
-    //Third Put the floor in the -tower - array - push the elemnt into the array
-    tower[vf]=(completeFloor);
-    side=''
-     center=''
-    }
-    return tower;
-}
+//     //Third Put the floor in the -tower - array - push the elemnt into the array
+//     tower[vf]=(completeFloor);
+//     side=''
+//      center=''
+//     }
+//     return tower;
+// }
 
 
 
