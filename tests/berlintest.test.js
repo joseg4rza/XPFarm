@@ -10,6 +10,16 @@ const {berlinClock} =require ('../berlinClock.js')
 // });
 
 //Test 3 Que podemos recibir y leer hora natural en 3 variables
+// it('should accept the correct 24h formatted input', () => {
+//     expect(berlinClock('23:52:35')).toBe('235235');
+// });
+
+//Test 4 Imprimir el reloj entero apagado, vaya, crear el reloj
 it('should accept the correct 24h formatted input', () => {
-    expect(berlinClock('23:52:35')).toBe('235235');
+    expect(berlinClock('23:52:35')).toBe("O\nOOOO\nOOOO\nOOOOOOOOOOO\nOOOO");
 });
+
+// //Test 5 Que podemos recibir y leer hora natural en 3 variables
+// it('should accept the correct 24h formatted input', () => {
+//     expect(berlinClock('23:52:35')).toBe('O');
+// });
