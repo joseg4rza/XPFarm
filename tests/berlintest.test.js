@@ -19,7 +19,13 @@ const {berlinClock} =require ('../berlinClock.js')
 //     expect(berlinClock('23:52:35')).toBe("O\nOOOO\nOOOO\nOOOOOOOOOOO\nOOOO");
 // });
 
-//Test 5 Que podemos recibir y leer hora natural en 3 variables
-it('should accept the correct 24h formatted input', () => {
-    expect(berlinClock('23:52:35')).toBe("O\n");
+// //Test 5 Que podemos recibir y leer hora natural en 3 variables
+// it('should accept the correct 24h formatted input', () => {
+//     expect(berlinClock('23:52:35')).toBe("O\n");
+// });
+
+const {oneSecPanel} =require ('../berlinClock.js')
+//Test 6(1) Que podemos recibir y mostrar los segundos
+it('should accept the correct 24h formatted input, and identify the seconds, displaying the One-Second bub on or off', () => {
+    expect(oneSecPanel('23:52:35')).toBe("O\n");
 });
