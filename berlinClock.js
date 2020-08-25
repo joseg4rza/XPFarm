@@ -1,40 +1,3 @@
-
-//   Test.assertSimilar(berlinClock("12:56:01"), 
-//   "O\nRROO\nRROO\nYYRYYRYYRYY\nYOOO")
-exports.berlinClock = (time) => {
-  
-  
-  var rSeconds=time[6]+time[7]; //Receipt Seconds from time
-  //Berlin clock off created:
-  
-  
-  var oneHourBulbPanel='OOOO';
-  var fiveMinBulbPanel='OOOOOOOOOOO';
-  var oneMinBulbPanel='OOOO';
-//secondsPanel=rSeconds
-//check if the number is even
-if(rSeconds %2 === 0) {
-  oneSecondBulbPanel='Y'+'\n';
-}
-// if the number is odd
-else {
-  oneSecondBulbPanel='O'+'\n';
-}
- //5Hour Bulbs Panel 
-//Divide the hour value between 5hour blocks and then extract that
-
-//METER TODO A METODOS Y HACER LOS TESTEOS ASÓ
-  
-  var berlinClock=oneSecondBulbPanel+'\n'+fiveHourBulbPanel+'\n'+oneHourBulbPanel+'\n'+fiveMinBulbPanel+'\n'+oneMinBulbPanel;
-  
-  var testPanel='';
-  testPanel=oneSecondBulbPanel;
-
-  return testPanel;
-  //return berlinClock;
-  
-}
-
 exports.oneSecPanel = (time) => {
     var rSeconds=time[6]+time[7]; //Receipt Seconds from time
   //Berlin clock off created:
@@ -51,50 +14,53 @@ exports.oneSecPanel = (time) => {
    return oneSecondBulbPanel;
 }
 
-exports.fiveHourPanel = (time) => {
+exports.twentyHourPanel = (time) => {
   var rHours=time[0]+time[1]; //Receipt Hours from time
   //fiveHourPanel off created:
   var fiveHourBulbPanel='OOOO';
   var fiveHourBulbs=Math.trunc(rHours/5)
   //check if the number is multiple of 5
   if(fiveHourBulbs === 1) {
-    fiveHourBulbPanel='YOOO'+'\n';
+    fiveHourBulbPanel='ROOO'+'\n';
   }
   else if(fiveHourBulbs === 2) {
-    fiveHourBulbPanel='YYOO'+'\n';
+    fiveHourBulbPanel='RROO'+'\n';
   }
   else if(fiveHourBulbs === 3) {
-    fiveHourBulbPanel='YYYO'+'\n';
+    fiveHourBulbPanel='RRRO'+'\n';
   }
   else if(fiveHourBulbs === 4) {
-    fiveHourBulbPanel='YYYY'+'\n';
+    fiveHourBulbPanel='RRRR'+'\n';
+  }
+  else if(fiveHourBulbs === 0) {
+    fiveHourBulbPanel='OOOO'+'\n';
   }
   return fiveHourBulbPanel;
 }
-exports.oneHourPanel = (time) => {
+exports.fourHourPanel = (time) => {
   var rHours=time[0]+time[1]; //Receipt Hours from time
   //oneHourPanel off created:
   var oneHourBulbPanel='OOOO';
-  
+  var oneHourBulbs=rHours%5;
   //check if the number is multiple of 5
-  if(rHours%5 === 1) {
-    oneHourBulbPanel='YOOO'+'\n';
+  if(oneHourBulbs === 1) {
+    oneHourBulbPanel='ROOO'+'\n';
   }
-  else if(rHours%5 === 2) {
-    oneHourBulbPanel='YYOO'+'\n';
+  else if(oneHourBulbs === 2) {
+    oneHourBulbPanel='RROO'+'\n';
   }
-  else if(rHours%5 === 3) {
-    oneHourBulbPanel='YYYO'+'\n';
+  else if(oneHourBulbs === 3) {
+    oneHourBulbPanel='RRRO'+'\n';
   }
-  else if(rHours%5 === 4) {
-    oneHourBulbPanel='YYYY'+'\n';
+  else if(oneHourBulbs === 4) {
+    oneHourBulbPanel='RRRR'+'\n';
   }
-  else if(rHours%5 === 0) {
+  else if(oneHourBulbs === 0) {
     oneHourBulbPanel='OOOO'+'\n';
   }
   return oneHourBulbPanel;
 }
-exports.fiveMinPanel = (time) => {
+exports.fiftyFiveMinPanel = (time) => {
   var rMinutes=time[3]+time[4]; //Receipt Minutes from time
   //oneHourPanel off created:
   var fiveMinBulbPanel='OOOOOOOOOOO';
@@ -139,27 +105,33 @@ exports.fiveMinPanel = (time) => {
   }
   return fiveMinBulbPanel;
 }
+exports.fourMinPanel = (time) => {
+  var rrMinutes=time[3]+time[4]; //Receipt Hours from time
+  //oneHourPanel off created:
+  var oneMinBulbPanel='OOOO';
+  var oneMinBulbs=rrMinutes%5
+  //check if the number is multiple of 5
+  if(oneMinBulbs === 1) {
+    oneMinBulbPanel='YOOO';
+  }
+  else if(oneMinBulbs === 2) {
+    oneMinBulbPanel='YYOO';
+  }
+  else if(oneMinBulbs === 3) {
+    ooneMinBulbPanel='YYYO';
+  }
+  else if(oneMinBulbs=== 4) {
+    oneMinBulbPanel='YYYY';
+  }
+  else if(oneMinBulbs === 0) {
+    oneMinBulbPanel='OOOO';
+  }
+  return oneMinBulbPanel;
+}
 
-
-
-
-
-
-// exports.naturalTimeReader = (time,elementRequired) => {
-//   var rHours=time[0]+time[1]; //Receipt Hours from time
-//   var rMinutes=time[3]+time[4]; //Receipt Minutes from time
-//   var rSeconds=time[6]+time[7]; //Receipt Seconds from time
-  
-//   if(elementRequired === hours) {
-//     return rHours;
-//   }
-//   // if the number is odd
-//   else {if(elementRequired === hours) {
-//     return rHours;
-//   }
-//     return oneSecondBulbPanel;
-
+// exports.berlinClock = (Time) => {
+//   var tBC='';
+//   tBC=oneSecPanel(Time)+twentyHourPanel(Time)+fourHourPanel(Time)+fiftyFiveMinPanel(Time)+fourMinPanel(Time)
+//   return tBC;
+ 
 // }
-
-
-
