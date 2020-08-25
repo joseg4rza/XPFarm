@@ -25,13 +25,19 @@ const {berlinClock} =require ('../berlinClock.js')
 // });
 
 const {oneSecPanel} =require ('../berlinClock.js')
-//Test 6(1) Que podemos recibir y mostrar los segundos
 it('should accept the correct 24h formatted input, and identify the seconds, displaying the One-Second bub on or off', () => {
     expect(oneSecPanel('23:52:35')).toBe("O\n");
 });
 
 const {fiveHourPanel} =require ('../berlinClock.js')
-//Test 6(1) Que podemos recibir y mostrar los segundos
 it('should accept the correct 24h formatted input, and identify the hours, displaying the five-hour bulbs panel correctly', () => {
     expect(fiveHourPanel('23:52:35')).toBe("YYYY\n");
+});
+const {oneHourPanel} =require ('../berlinClock.js')
+it('should accept the correct 24h formatted input, and identify the hours, displaying the five-hour bulbs panel correctly', () => {
+    expect(oneHourPanel('23:52:35')).toBe("YYYO\n");
+});
+const {fiveMinPanel} =require ('../berlinClock.js')
+it('should accept the correct 24h formatted input, and identify the hours, displaying the five-hour bulbs panel correctly', () => {
+    expect(fiveMinPanel('23:52:35')).toBe("YYRYYRYYRYO\n");
 });

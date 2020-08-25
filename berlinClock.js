@@ -3,7 +3,7 @@
 //   "O\nRROO\nRROO\nYYRYYRYYRYY\nYOOO")
 exports.berlinClock = (time) => {
   
-  var rMinutes=time[3]+time[4]; //Receipt Minutes from time
+  
   var rSeconds=time[6]+time[7]; //Receipt Seconds from time
   //Berlin clock off created:
   
@@ -55,22 +55,89 @@ exports.fiveHourPanel = (time) => {
   var rHours=time[0]+time[1]; //Receipt Hours from time
   //fiveHourPanel off created:
   var fiveHourBulbPanel='OOOO';
-
+  var fiveHourBulbs=Math.trunc(rHours/5)
   //check if the number is multiple of 5
-  if(Math.trunc(rHours/5) === 1) {
+  if(fiveHourBulbs === 1) {
     fiveHourBulbPanel='YOOO'+'\n';
   }
-  // if the number is odd
-  else if(Math.trunc(rHours/5) === 2) {
+  else if(fiveHourBulbs === 2) {
     fiveHourBulbPanel='YYOO'+'\n';
   }
-  else if(Math.trunc(rHours/5) === 3) {
+  else if(fiveHourBulbs === 3) {
     fiveHourBulbPanel='YYYO'+'\n';
   }
-  else if(Math.trunc(rHours/5) === 4) {
+  else if(fiveHourBulbs === 4) {
     fiveHourBulbPanel='YYYY'+'\n';
   }
   return fiveHourBulbPanel;
+}
+exports.oneHourPanel = (time) => {
+  var rHours=time[0]+time[1]; //Receipt Hours from time
+  //oneHourPanel off created:
+  var oneHourBulbPanel='OOOO';
+  
+  //check if the number is multiple of 5
+  if(rHours%5 === 1) {
+    oneHourBulbPanel='YOOO'+'\n';
+  }
+  else if(rHours%5 === 2) {
+    oneHourBulbPanel='YYOO'+'\n';
+  }
+  else if(rHours%5 === 3) {
+    oneHourBulbPanel='YYYO'+'\n';
+  }
+  else if(rHours%5 === 4) {
+    oneHourBulbPanel='YYYY'+'\n';
+  }
+  else if(rHours%5 === 0) {
+    oneHourBulbPanel='OOOO'+'\n';
+  }
+  return oneHourBulbPanel;
+}
+exports.fiveMinPanel = (time) => {
+  var rMinutes=time[3]+time[4]; //Receipt Minutes from time
+  //oneHourPanel off created:
+  var fiveMinBulbPanel='OOOOOOOOOOO';
+  var fiveMinBulbs=Math.trunc(rMinutes/5)
+  
+  //check if the number is multiple of 5
+  if(fiveMinBulbs === 1) {
+    fiveMinBulbPanel='YOOOOOOOOOO'+'\n';
+  }
+  else if(fiveMinBulbs === 2) {
+    fiveMinBulbPanel='YYOOOOOOOOO'+'\n';
+  }
+  else if(fiveMinBulbs === 3) {
+    fiveMinBulbPanel='YYROOOOOOOO'+'\n';
+  }
+  else if(fiveMinBulbs === 4) {
+    fiveMinBulbPanel='YYRYOOOOOOO'+'\n';
+  }
+  else if(fiveMinBulbs=== 5) {
+    fiveMinBulbPanel='YYRYYOOOOOO'+'\n';
+  }
+  else if(fiveMinBulbs === 6) {
+    fiveMinBulbPanel='YYRYYROOOOO'+'\n';
+  }
+  else if(fiveMinBulbs === 7) {
+    fiveMinBulbPanel='YYRYYRYOOOO'+'\n';
+  }
+  else if(fiveMinBulbs === 8) {
+    fiveMinBulbPanel='YYRYYRYYOOO'+'\n';
+  }
+  else if(fiveMinBulbs === 9) {
+    fiveMinBulbPanel='YYRYYRYYROO'+'\n';
+  }
+  else if(fiveMinBulbs === 10) {
+    fiveMinBulbPanel='YYRYYRYYRYO'+'\n';
+  }
+  else if(fiveMinBulbs === 11) {
+    fiveMinBulbPanel='YYRYYRYYRYY'+'\n';
+  }
+  else if(fiveMinBulbs === 0) {
+    fiveMinBulbPanel='OOOOOOOOOOO'+'\n';
+  }
+  return fiveMinBulbPanel;
 }
 
 
