@@ -38,8 +38,7 @@ exports.twentyHourPanel = (time) => {
   return fiveHourBulbPanel;
 }
 exports.fourHourPanel = (time) => {
-  var rHours=time[0]+time[1]; //Receipt Hours from time
-  //oneHourPanel off created:
+  var rHours=time[0]+time[1]; 
   var oneHourBulbPanel='OOOO';
   var oneHourBulbs=rHours%5;
   //check if the number is multiple of 5
@@ -105,7 +104,7 @@ exports.fiftyFiveMinPanel = (time) => {
   }
   return fiveMinBulbPanel;
 }
-exports.fourMinPanel = (time) => {
+const fourMinPanel = (time) => {
   var rrMinutes=time[3]+time[4]; //Receipt Hours from time
   //oneHourPanel off created:
   var oneMinBulbPanel='OOOO';
@@ -129,9 +128,15 @@ exports.fourMinPanel = (time) => {
   return oneMinBulbPanel;
 }
 
-// exports.berlinClock = (Time) => {
-//   var tBC='';
-//   tBC=oneSecPanel(Time)+twentyHourPanel(Time)+fourHourPanel(Time)+fiftyFiveMinPanel(Time)+fourMinPanel(Time)
-//   return tBC;
- 
-// }
+// const berlinClock = (Time) => {
+// const berlinClock = function(Time) {
+function berlinClock(Time) {
+    var tBC='';
+    tBC=this.oneSecPanel(Time)+this.twentyHourPanel(Time)+this.fourHourPanel(Time)+this.fiftyFiveMinPanel(Time)+this.fourMinPanel(Time);
+    return tBC;
+    
+}
+module.exports = {
+  berlinClock,
+  fourMinPanel
+}

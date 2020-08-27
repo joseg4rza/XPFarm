@@ -24,29 +24,30 @@
 //     expect(berlinClock('23:52:35')).toBe("O\n");
 // });
 
-const {oneSecPanel} =require ('../berlinClock.js')
+const { oneSecPanel, twentyHourPanel, fourHourPanel, fiftyFiveMinPanel, fourMinPanel, berlinClock } =require ('../berlinClock.js')
+
 it('Identify the seconds, displaying the One-Second Panel on or off', () => {
     expect(oneSecPanel('23:52:35')).toBe("O\n");
 });
 
-const {twentyHourPanel} =require ('../berlinClock.js')
 it('Identify the hours, displaying the twenty-hours panel', () => {
     expect(twentyHourPanel('23:52:35')).toBe("RRRR\n");
 });
-const {fourHourPanel} =require ('../berlinClock.js')
+
 it('Identify the hours, displaying the four-hours panel', () => {
     expect(fourHourPanel('23:52:35')).toBe("RRRO\n");
 });
-const {fiftyFiveMinPanel} =require ('../berlinClock.js')
+
 it('Identify the minutes, displaying the fiftyfive-minutes panel', () => {
     expect(fiftyFiveMinPanel('23:52:35')).toBe("YYRYYRYYRYO\n");
 });
-const {fourMinPanel} =require ('../berlinClock.js')
+
 it('Identify the minutes, displaying the four-minutes panel', () => {
-    expect(fourMinPanel('12:56:01')).toBe("YOOO");
+    expect(fourMinPanel('23:52:35')).toBe("YYOO");
 });
 
-// const {berlinClock} =require ('../berlinClock.js')
-// it('should accept the correct 24h formatted input, and display complete clock', () => {
-//     expect(berlinClock('12:56:01')).toBe("Y\nRROO\nRROO\nYYRYYRYYRYY\nYOOO");
-// });
+it('should accept the correct 24h formatted input, and display complete clock', () => {
+    expect(berlinClock('23:52:35')).toBe("Y\nRRRR\nRRRO\nYYRYYRYYRYO\nYYOO");
+    expect(berlinClock('23:46:29')).toBe("Y\nRRRR\nRRRO\nYYRYYRYYRYO\nYYOO");
+});
+
