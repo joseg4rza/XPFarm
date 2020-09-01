@@ -1,13 +1,13 @@
 function oneSecPanel(time) {
-    var receiptSeconds=time[6]+time[7];
+  var receiptSeconds=time[7];
   var oneSecondBulbPanel='O';
-   if(receiptSeconds %2 === 0) {
-    oneSecondBulbPanel='Y'+'\n';
+  if(receiptSeconds %2 === 0) {
+    oneSecondBulbPanel='Y'
   }
   else {
-   oneSecondBulbPanel='O'+'\n';
+   oneSecondBulbPanel='O'
   }
-   return oneSecondBulbPanel;
+   return oneSecondBulbPanel+'\n';
 }
 function twentyHourPanel(time) {
   var receiptHours=time[0]+time[1]; 
@@ -31,25 +31,18 @@ function twentyHourPanel(time) {
   return fiveHourBulbPanel;
 }
 function fourHourPanel(time) {
-  var receiptHours=time[0]+time[1]; 
-  var oneHourBulbPanel='OOOO';
-  var oneHourBulbs=receiptHours%5;
-  if(oneHourBulbs === 1) {
-    oneHourBulbPanel='ROOO'+'\n';
+  var receiptHours=time[1]; 
+  var fourHourBulbPanel='';
+  var oneHourBulbs=receiptHours%5
+  var rFiller;
+  var oFiller;
+  for (rFiller = 0; rFiller< oneHourBulbs; rFiller++) {
+    fourHourBulbPanel=fourHourBulbPanel+'R';
   }
-  else if(oneHourBulbs === 2) {
-    oneHourBulbPanel='RROO'+'\n';
+  for (oFiller = 0; oFiller < (4-oneHourBulbs); oFiller++) {
+    fourHourBulbPanel=fourHourBulbPanel+'O';
   }
-  else if(oneHourBulbs === 3) {
-    oneHourBulbPanel='RRRO'+'\n';
-  }
-  else if(oneHourBulbs === 4) {
-    oneHourBulbPanel='RRRR'+'\n';
-  }
-  else if(oneHourBulbs === 0) {
-    oneHourBulbPanel='OOOO'+'\n';
-  }
-  return oneHourBulbPanel;
+  return fourHourBulbPanel+'\n';
 }
 function fiftyFiveMinPanel(time) {
   var receiptMinutes=time[3]+time[4];
@@ -110,7 +103,8 @@ function fourMinPanel(time) {
 }
 
 function berlinClock(Time) {
-   return oneSecPanel(Time)+twentyHourPanel(Time)+fourHourPanel(Time)+fiftyFiveMinPanel(Time)+fourMinPanel(Time);
+   return twentyHourPanel(Time)+fourHourPanel(Time)+fiftyFiveMinPanel(Time)+fourMinPanel(Time);
+   //return fourHourPanel(Time);
 }
 
 module.exports = {
