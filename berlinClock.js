@@ -1,10 +1,10 @@
-exports.oneSecPanel = (time) => {
-    var rSeconds=time[6]+time[7]; //Receipt Seconds from time
+function oneSecPanel(time) {
+    var receiptSeconds=time[6]+time[7]; //Receipt Seconds from time
   //Berlin clock off created:
   var oneSecondBulbPanel='O';
-  //secondsPanel=rSeconds
+  //secondsPanel=receiptSeconds
   //check if the number is even
-  if(rSeconds %2 === 0) {
+  if(receiptSeconds %2 === 0) {
     oneSecondBulbPanel='Y'+'\n';
   }
   // if the number is odd
@@ -13,13 +13,10 @@ exports.oneSecPanel = (time) => {
   }
    return oneSecondBulbPanel;
 }
-
-exports.twentyHourPanel = (time) => {
-  var rHours=time[0]+time[1]; //Receipt Hours from time
-  //fiveHourPanel off created:
+function twentyHourPanel(time) {
+  var receiptHours=time[0]+time[1]; 
   var fiveHourBulbPanel='OOOO';
-  var fiveHourBulbs=Math.trunc(rHours/5)
-  //check if the number is multiple of 5
+  var fiveHourBulbs=Math.trunc(receiptHours/5)
   if(fiveHourBulbs === 1) {
     fiveHourBulbPanel='ROOO'+'\n';
   }
@@ -37,10 +34,10 @@ exports.twentyHourPanel = (time) => {
   }
   return fiveHourBulbPanel;
 }
-exports.fourHourPanel = (time) => {
-  var rHours=time[0]+time[1]; 
+function fourHourPanel(time) {
+  var receiptHours=time[0]+time[1]; 
   var oneHourBulbPanel='OOOO';
-  var oneHourBulbs=rHours%5;
+  var oneHourBulbs=receiptHours%5;
   //check if the number is multiple of 5
   if(oneHourBulbs === 1) {
     oneHourBulbPanel='ROOO'+'\n';
@@ -59,7 +56,7 @@ exports.fourHourPanel = (time) => {
   }
   return oneHourBulbPanel;
 }
-exports.fiftyFiveMinPanel = (time) => {
+function fiftyFiveMinPanel(time) {
   var rMinutes=time[3]+time[4]; //Receipt Minutes from time
   //oneHourPanel off created:
   var fiveMinBulbPanel='OOOOOOOOOOO';
@@ -104,8 +101,8 @@ exports.fiftyFiveMinPanel = (time) => {
   }
   return fiveMinBulbPanel;
 }
-const fourMinPanel = (time) => {
-  var rrMinutes=time[3]+time[4]; //Receipt Hours from time
+function fourMinPanel(time) {
+  var rrMinutes=time[3]+time[4]; 
   //oneHourPanel off created:
   var oneMinBulbPanel='OOOO';
   var oneMinBulbs=rrMinutes%5
@@ -131,12 +128,14 @@ const fourMinPanel = (time) => {
 // const berlinClock = (Time) => {
 // const berlinClock = function(Time) {
 function berlinClock(Time) {
-    var tBC='';
-    tBC=this.oneSecPanel(Time)+this.twentyHourPanel(Time)+this.fourHourPanel(Time)+this.fiftyFiveMinPanel(Time)+this.fourMinPanel(Time);
-    return tBC;
-    
+   return oneSecPanel(Time)+twentyHourPanel(Time)+fourHourPanel(Time)+fiftyFiveMinPanel(Time)+fourMinPanel(Time);
 }
+
 module.exports = {
-  berlinClock,
-  fourMinPanel
+  oneSecPanel,
+  twentyHourPanel,
+  fourHourPanel,
+  fiftyFiveMinPanel,
+  fourMinPanel,
+  berlinClock
 }
