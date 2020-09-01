@@ -1,13 +1,9 @@
 function oneSecPanel(time) {
-    var receiptSeconds=time[6]+time[7]; //Receipt Seconds from time
-  //Berlin clock off created:
+    var receiptSeconds=time[6]+time[7];
   var oneSecondBulbPanel='O';
-  //secondsPanel=receiptSeconds
-  //check if the number is even
-  if(receiptSeconds %2 === 0) {
+   if(receiptSeconds %2 === 0) {
     oneSecondBulbPanel='Y'+'\n';
   }
-  // if the number is odd
   else {
    oneSecondBulbPanel='O'+'\n';
   }
@@ -38,7 +34,6 @@ function fourHourPanel(time) {
   var receiptHours=time[0]+time[1]; 
   var oneHourBulbPanel='OOOO';
   var oneHourBulbs=receiptHours%5;
-  //check if the number is multiple of 5
   if(oneHourBulbs === 1) {
     oneHourBulbPanel='ROOO'+'\n';
   }
@@ -57,12 +52,9 @@ function fourHourPanel(time) {
   return oneHourBulbPanel;
 }
 function fiftyFiveMinPanel(time) {
-  var rMinutes=time[3]+time[4]; //Receipt Minutes from time
-  //oneHourPanel off created:
+  var receiptMinutes=time[3]+time[4];
   var fiveMinBulbPanel='OOOOOOOOOOO';
-  var fiveMinBulbs=Math.trunc(rMinutes/5)
-  
-  //check if the number is multiple of 5
+  var fiveMinBulbs=Math.trunc(receiptMinutes/5)
   if(fiveMinBulbs === 1) {
     fiveMinBulbPanel='YOOOOOOOOOO'+'\n';
   }
@@ -101,32 +93,22 @@ function fiftyFiveMinPanel(time) {
   }
   return fiveMinBulbPanel;
 }
+
 function fourMinPanel(time) {
-  var rrMinutes=time[3]+time[4]; 
-  //oneHourPanel off created:
-  var oneMinBulbPanel='OOOO';
-  var oneMinBulbs=rrMinutes%5
-  //check if the number is multiple of 5
-  if(oneMinBulbs === 1) {
-    oneMinBulbPanel='YOOO';
+  var receiptMinutes=time[4]; 
+  var oneMinBulbPanel='';
+  var oneMinBulbs=receiptMinutes%5
+  var yFiller;
+  var oFiller;
+  for (yFiller = 0; yFiller< oneMinBulbs; yFiller++) {
+    oneMinBulbPanel=oneMinBulbPanel+'Y';
   }
-  else if(oneMinBulbs === 2) {
-    oneMinBulbPanel='YYOO';
+  for (oFiller = 0; oFiller < (4-oneMinBulbs); oFiller++) {
+    oneMinBulbPanel=oneMinBulbPanel+'O';
   }
-  else if(oneMinBulbs === 3) {
-    ooneMinBulbPanel='YYYO';
-  }
-  else if(oneMinBulbs=== 4) {
-    oneMinBulbPanel='YYYY';
-  }
-  else if(oneMinBulbs === 0) {
-    oneMinBulbPanel='OOOO';
-  }
-  return oneMinBulbPanel;
+  return oneMinBulbPanel+'\n';
 }
 
-// const berlinClock = (Time) => {
-// const berlinClock = function(Time) {
 function berlinClock(Time) {
    return oneSecPanel(Time)+twentyHourPanel(Time)+fourHourPanel(Time)+fiftyFiveMinPanel(Time)+fourMinPanel(Time);
 }

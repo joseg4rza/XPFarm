@@ -13,4 +13,3 @@ Goal Segundos: Como nuestro (TRADUCTOR) a reloj de Berlin no muestra la cantidad
 Necesitamos refactorizar nuestras pruebas de manera que siempre se puedan correr y se vayan acumulando.
 
 Para ello, necesitamos modularizar nuestro código y cada nuevo código. 
-
